@@ -5,7 +5,7 @@ import numpy
 
 
 layers = Image.open("Replacement_map.gif")
-in_image = Image.open("cropped_and_scaled.png")
+in_image = Image.open("cropped.png")
 
 layers_array = numpy.asarray(layers)
 in_array = numpy.asarray(in_image)
