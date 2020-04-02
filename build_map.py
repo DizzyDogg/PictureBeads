@@ -19,4 +19,4 @@ print(len(in_array[0]))
 out_array = in_array
 out_image = Image.fromarray(out_array, "RGB")
 
-
+out_image.save('test.png', 'PNG')
