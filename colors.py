@@ -44,9 +44,6 @@ class Colors:
                 print('Given RGB converts to {}'.format(
                     bytes(color_data["rgb"]).hex()))
                 error_count += 1
-        #if error_count:
-            #import sys
-            #sys.exit(error_count)
 
     def add_images(self, dir):
         for color_name in self.color_dictionary.keys():
@@ -76,7 +73,7 @@ class Colors:
         palette = []
 
         for color_data in self.color_dictionary.values():
-            palette.extend(color_data[:3])
+            palette.extend(color_data["rgb"])
 
         palette.extend(palette[:3] * (256 - len(self.color_dictionary)))
 
