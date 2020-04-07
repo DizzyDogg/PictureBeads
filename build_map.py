@@ -5,8 +5,7 @@ from PIL import Image
 from colors import Colors
 
 
-OUTPUT_WIDTH = 40
-OUTPUT_HEIGHT = 50
+OUTPUT_SIZE = (40, 50)
 COLORS_FILENAME = "bead_colors_perler_standard.json"
 
 # Get image
@@ -32,11 +31,27 @@ adjusted_image = scaled_image.convert(
 )
 
 # Convert to bead colors
-out_image = adjusted_image.convert(
+dithered_image = adjusted_image.convert(
     mode="P",
     dither=Image.FLOYDSTEINBERG,
     palette=palette_image
 )
+
+
+# Generate template
+out_image = Image.new(
+    "RGB",
+    # Output size
+    tuple(l * r for l, r in zip(OUTPUT_SIZE, colors.image_size)),
+)
+width, height = dithered_image.size
+print(colors.color_dictionary["Apricot"]["image"].size)
+for y in range(height):
+    for x in range(width):
+        out_image.paste(
+            colors.color_dictionary["Apricot"]["image"],
+            (x * 60, y * 60)  # , x * 60 + 59, y * 60 + 59),
+        )
 
 # Display for debugging purposes
 out_image.show()
