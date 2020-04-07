@@ -36,6 +36,8 @@ dithered_image = adjusted_image.convert(
     palette=palette_image
 )
 
+#dithered_image.show()
+
 # Generate template
 out_image = Image.new(
     "RGB",

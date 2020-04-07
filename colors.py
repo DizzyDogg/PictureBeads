@@ -60,7 +60,7 @@ class Colors:
 
     def add_images(self, dir):
         for color_name in self.color_lookup.keys():
-            filename = "{}.png".format(color_name)
+            filename = color_name.replace(" ", "_") + ".png"
             path = os.path.sep.join([self.image_dir, filename])
 
             try:
