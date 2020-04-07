@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
-   sodipodi:docname="Cherry.svg"
+   sodipodi:docname="Orange.svg"
    inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/ColorImages/Apricot.png"
    inkscape:export-xdpi="3.9140882"
    inkscape:export-ydpi="3.9140882">
@@ -28,13 +28,13 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="84.796948"
-     inkscape:cy="597.55654"
+     inkscape:zoom="0.90509668"
+     inkscape:cx="374.82327"
+     inkscape:cy="797.10679"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:snap-others="false"
+     inkscape:snap-others="true"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-center="false"
      inkscape:snap-global="true"
@@ -52,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -61,31 +61,40 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#ad3345;fill-opacity:1;stroke:#aa753e;stroke-width:0.26458332;stroke-opacity:1;opacity:1"
+       style="fill:#ff803e;fill-opacity:1;stroke:#aa753e;stroke-width:0.26458332;stroke-opacity:1"
        id="rect815"
        width="103.56547"
        height="103.56547"
-       x="53.217266"
-       y="96.71727"
+       x="64.798355"
+       y="59.0047"
+       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Blush.png"
        inkscape:export-xdpi="14.677831"
-       inkscape:export-ydpi="14.677831"
-       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Cherry.png" />
+       inkscape:export-ydpi="14.677831" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot817"
-       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#000000;fill-opacity:1;stroke:none;"
-       transform="matrix(0.52236506,0,0,0.52236506,-102.4932,-74.8131)"
+       style="font-style:normal;font-weight:normal;font-size:192px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.52236506,0,0,0.52236506,-95.270591,-112.4767)"
+       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Blush.png"
        inkscape:export-xdpi="14.677831"
-       inkscape:export-ydpi="14.677831"
-       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Cherry.png"><flowRegion
+       inkscape:export-ydpi="14.677831"><flowRegion
          id="flowRegion819"
-         style="font-size:192px;fill:#000000;fill-opacity:1;"><rect
+         style="font-size:192px"><rect
            id="rect821"
            width="190.29585"
            height="223.61601"
            x="330"
            y="327.51968"
-           style="font-size:192px;fill:#000000;fill-opacity:1;" /></flowRegion><flowPara
-         id="flowPara823"
-         style="font-size:192px;line-height:1.25;fill:#000000;fill-opacity:1;">C</flowPara></flowRoot>  </g>
+           style="font-size:192px" /></flowRegion><flowPara
+         id="flowPara823">O</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot987"
+       style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion989"><rect
+           id="rect991"
+           width="541.44177"
+           height="544.47223"
+           x="189.90868"
+           y="174.9966" /></flowRegion><flowPara
+         id="flowPara993"></flowPara></flowRoot>  </g>
 </svg>
