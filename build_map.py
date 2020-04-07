@@ -16,8 +16,7 @@ scaled_image = in_image.resize((40, 50), Image.LANCZOS)
 
 # Generate a palette from available colors
 colors = Colors(COLORS_FILENAME)
-palette_image = Image.new('P', (16, 16))
-palette_image.putpalette(colors.get_palette())
+palette_image = colors.get_palette()
 
 # Adjust channels
 R = 1.1
@@ -37,7 +36,6 @@ dithered_image = adjusted_image.convert(
     palette=palette_image
 )
 
-
 # Generate template
 out_image = Image.new(
     "RGB",
@@ -45,12 +43,14 @@ out_image = Image.new(
     tuple(l * r for l, r in zip(OUTPUT_SIZE, colors.image_size)),
 )
 width, height = dithered_image.size
-print(colors.color_dictionary["Apricot"]["image"].size)
+print(colors.color_lookup["Apricot"]["image"].size)
 for y in range(height):
     for x in range(width):
+        rgb = dithered_image.getpixel((x, y))
+        color_name = colors.get_color_name(rgb)
         out_image.paste(
-            colors.color_dictionary["Apricot"]["image"],
-            (x * 60, y * 60)  # , x * 60 + 59, y * 60 + 59),
+            colors.color_lookup[color_name]["image"],
+            (x * 60, y * 60)
         )
 
 # Display for debugging purposes
