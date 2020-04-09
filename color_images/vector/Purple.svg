@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="287.83761"
-     inkscape:cy="642.00325"
+     inkscape:cx="84.796948"
+     inkscape:cy="637.96264"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -52,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -69,7 +69,7 @@
        y="96.71727"
        inkscape:export-xdpi="14.677831"
        inkscape:export-ydpi="14.677831"
-       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Rust.png" />
+       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Purple.png" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot817"
@@ -77,7 +77,7 @@
        transform="matrix(0.52236506,0,0,0.52236506,-100.82816,-74.764128)"
        inkscape:export-xdpi="14.677831"
        inkscape:export-ydpi="14.677831"
-       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Rust.png"><flowRegion
+       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Purple.png"><flowRegion
          id="flowRegion819"
          style="font-size:192px;fill:#ffffff;fill-opacity:1"><rect
            id="rect821"
@@ -97,7 +97,7 @@
            height="534.37073"
            x="138.3909"
            y="282.07275" /></flowRegion><flowPara
-         id="flowPara1796"></flowPara></flowRoot>    <flowRoot
+         id="flowPara1796" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot1950"
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
@@ -107,5 +107,5 @@
            height="520.22858"
            x="135.36044"
            y="308.33673" /></flowRegion><flowPara
-         id="flowPara1956"></flowPara></flowRoot>  </g>
+         id="flowPara1956" /></flowRoot>  </g>
 </svg>
