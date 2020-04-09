@@ -1,5 +1,7 @@
 #!/bin/env python3
 
+from collections import defaultdict
+
 from PIL import Image
 
 from colors import Colors
@@ -49,7 +51,16 @@ for y in range(height):
         )
 
 # Display for debugging purposes
-out_image.show()
+# out_image.show()
+
+# Count beads of each color
+color_counts = defaultdict(int)
+for y in range(height):
+    for x in range(width):
+        pixel = dithered_image.getpixel((x, y))
+        color_name = colors.get_color_name(pixel)
+        color_counts[color_name] += 1
+print(color_counts)
 
 # Write out to disk
 out_image.save('test.png', 'PNG')
