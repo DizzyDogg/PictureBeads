@@ -32,21 +32,16 @@ adjusted_image = scaled_image.convert(
 # Convert to bead colors
 dithered_image = adjusted_image.quantize(palette=palette_image, method=0)
 
-dithered_rgb = dithered_image.convert("RGB")
-# dithered_rgb.show()
-
-# dithered_image.show()
-
 # Generate template
 out_image = Image.new(
     "RGB",
     # Output size
     tuple(l * r for l, r in zip(OUTPUT_SIZE, colors.image_size)),
 )
-width, height = dithered_rgb.size
+width, height = dithered_image.size
 for y in range(height):
     for x in range(width):
-        pixel = dithered_rgb.getpixel((x, y))
+        pixel = dithered_image.getpixel((x, y))
         color_name = colors.get_color_name(pixel)
         out_image.paste(
             colors.color_lookup[color_name]["image"],
