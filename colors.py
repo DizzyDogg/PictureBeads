@@ -42,10 +42,14 @@ class Colors:
         error_count = 0
         for color_name, color_data in self.color_lookup.items():
             if bytes(color_data["rgb"]).hex() != color_data["hex"].lower():
-                print('Color data mismatch for {}: {}, {}, {} vs {}'.format(
-                    color_name, *color_data["rgb"], color_data["hex"]))
+                print(
+                    f'Color data mismatch for {color_name}:'
+                    f' {color_data["rgb"][0]}, {color_data["rgb"][1]},'
+                    f' {color_data["rgb"][2]} vs {color_data["hex"]}'
+                )
                 print('Given RGB converts to {}'.format(
-                    bytes(color_data["rgb"]).hex()))
+                    bytes(color_data["rgb"]).hex()
+                ))
                 error_count += 1
 
     def generate_reverse_lookup(self):
@@ -67,7 +71,7 @@ class Colors:
                 image = Image.open(path)
                 if (image.width, image.height) != self.image_size:
                     print(f"Incorrect image size for {color_name}:"
-                          " {image_width}*{image_height}")
+                          f" {image.width}*{image.height}")
                 self.color_lookup[color_name]["image"] = image
 
             except (FileNotFoundError, IOError):
@@ -89,11 +93,9 @@ class Colors:
             palette.extend(color_data["rgb"])
 
         palette.extend(palette[:3] * (256 - len(self.color_lookup)))
-        print(palette)
 
         self.palette = Image.new('P', (16, 16))
         self.palette.putpalette(palette)
-        print(self.palette.getpalette())
 
     def get_palette(self):
         return self.palette
@@ -102,7 +104,7 @@ class Colors:
         try:
             return self.reverse_lookup[color.upper()]
         except AttributeError:
-            return self.reverse_lookup[color]
+            return self.reverse_lookup.get(color, "Black")
 
 
 def main():
