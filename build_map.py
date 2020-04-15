@@ -3,6 +3,7 @@
 from collections import defaultdict
 
 from PIL import Image
+from PIL.ImageOps import mirror
 
 from colors import Colors
 
@@ -34,16 +35,19 @@ adjusted_image = scaled_image.convert(
 # Convert to bead colors
 dithered_image = adjusted_image.quantize(palette=palette_image, method=0)
 
+# Flip image left to right
+flipped_image = mirror(dithered_image)
+
 # Generate template
 out_image = Image.new(
     "RGB",
     # Output size
     tuple(l * r for l, r in zip(OUTPUT_SIZE, colors.image_size)),
 )
-width, height = dithered_image.size
+width, height = flipped_image.size
 for y in range(height):
     for x in range(width):
-        pixel = dithered_image.getpixel((x, y))
+        pixel = flipped_image.getpixel((x, y))
         color_name = colors.get_color_name(pixel)
         out_image.paste(
             colors.color_lookup[color_name]["image"],
@@ -60,7 +64,6 @@ for y in range(height):
         pixel = dithered_image.getpixel((x, y))
         color_name = colors.get_color_name(pixel)
         color_counts[color_name] += 1
-print(color_counts)
 
 # Write out to disk
 out_image.save('test.png', 'PNG')
