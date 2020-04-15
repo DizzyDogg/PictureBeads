@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="294.7722"
-     inkscape:cy="549.90415"
+     inkscape:cx="151.20077"
+     inkscape:cy="547.04701"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -52,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -61,7 +61,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="opacity:1;fill:#9d7153;fill-opacity:1;stroke:#aa753e;stroke-width:0.26458332;stroke-opacity:1"
+       style="opacity:1;fill:#a0764d;fill-opacity:1;stroke:#aa753e;stroke-width:0.26458332;stroke-opacity:1"
        id="rect815"
        width="103.56547"
        height="103.56547"
@@ -69,7 +69,7 @@
        y="96.71727"
        inkscape:export-xdpi="14.677832"
        inkscape:export-ydpi="14.677832"
-       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Dark_Blue.png" />
+       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Light_Brown.png" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot817"
@@ -97,7 +97,7 @@
            height="579.82758"
            x="130.30968"
            y="251.76819" /></flowRegion><flowPara
-         id="flowPara824"></flowPara></flowRoot>    <flowRoot
+         id="flowPara824" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot859"
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
@@ -107,5 +107,5 @@
            height="205.06097"
            x="417.19299"
            y="581.07794" /></flowRegion><flowPara
-         id="flowPara865"></flowPara></flowRoot>  </g>
+         id="flowPara865" /></flowRoot>  </g>
 </svg>
