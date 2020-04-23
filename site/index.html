@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>PictureBeads</title>
+  <style id="compiled-css" type="text/css">
+  </style>
+
+  <link rel="stylesheet" href="fiddle.css" />
+  <link rel="stylesheet" href="vendor/powerange/powerange.min.css" />
+  <link rel="stylesheet" href="vendor/croppie/croppie.css" />
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/powerange/powerange.min.js"></script>
+  <script src="vendor/croppie/croppie.min.js"></script>
+
+</head>
+<body>
+
+<div id="modal">
+  <a class="button actionUpload">
+    <span>Upload</span>
+    <input type="file" id="upload" value="Choose Image" accept="image/*">
+  </a>
+  <button class="actionDone">Done</button>
+  <button class="actionCancel">Cancel</button>
+  <div id="cropper-tool"></div>
+</div>
+
+<br>
+<div id="red-bar">
+  <input class="slider"/>
+  <label>Red Multiplier</label>
+  <div id="red-box" class="display-box"></div>
+</div>
+<div id="green-bar">
+  <input class="slider"/>
+  <label>Green Multiplier</label>
+  <div id="green-box" class="display-box"></div>
+</div>
+<div id="blue-bar">
+  <input class="slider"/>
+  <label>Blue Multiplier</label>
+  <div id="blue-box" class="display-box"></div>
+</div>
+
+  <script src="fiddle.js"></script>
+</body>
+</html>
