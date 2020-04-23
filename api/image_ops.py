@@ -8,7 +8,7 @@ from colors import Colors
 
 TILE_HEIGHT = TILE_WIDTH = 60
 OUTPUT_SIZE = (40, 50)
-COLORS_FILENAME = "bead_colors_perler_standard.json"
+COLORS_FILENAME = "data/bead_colors_perler_standard.json"
 
 # Generate a palette from available colors
 COLORS = Colors(COLORS_FILENAME)
@@ -39,7 +39,6 @@ def flip(image):
 
 
 def generate_template(image):
-    # Generate template
     out_image = Image.new(
         "RGB",
         # Output size
@@ -68,8 +67,8 @@ def count_beads(image):
     return color_counts
 
 
-def generate_pixelart(image):
-    return dither(adjust_channels(resize(image)))
+def generate_pixelart(image, red=1.0, green=1.0, blue=1.0):
+    return dither(adjust_channels(resize(image), red, green, blue))
 
 
 if __name__ == "__main__":

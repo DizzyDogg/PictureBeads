@@ -7,7 +7,7 @@ from PIL import Image
 
 
 IMAGE_SIZE = (60, 60)
-IMAGE_DIR = "./color_images/bitmap"
+IMAGE_DIR = "data/color_images/bitmap"
 
 
 class Colors:
