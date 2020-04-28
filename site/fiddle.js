@@ -41,34 +41,33 @@ var redBox = document.querySelector("#red-box");
 var greenBox = document.querySelector("#green-box");
 var blueBox = document.querySelector("#blue-box");
 
-var args = {
+var redArgs = {
   min: 0,
   max: 255,
-  start: 100,
+  start: 40,
   step: 10
 };
 
+var greenArgs = Object.assign({}, redArgs);
+greenArgs.start = 100;
+var blueArgs = Object.assign({}, redArgs);
+blueArgs.start = 200;
+
 // set default values
-var red1 = new Powerange(red, args);
-var green1 = new Powerange(green, args);
-var blue1 = new Powerange(blue, args);
+var red1 = new Powerange(red, redArgs);
+var green1 = new Powerange(green, greenArgs);
+var blue1 = new Powerange(blue, blueArgs);
 
 // handle slider value changes
 function setBGColor() {
   var newColor = `rgb(${red.value}, ${green.value}, ${blue.value})`;
   document.body.style.background = newColor;
+  redBox.innerHTML   = red.value;
+  greenBox.innerHTML = green.value;
+  blueBox.innerHTML  = blue.value;
 }
 
-red0.on("mouseup", function() {
-  setBGColor();
-  redBox.innerHTML = red.value;
-})
-green0.on("mouseup", function() {
-  setBGColor();
-  greenBox.innerHTML = green.value;
+var red0 = $("#red-bar");
+$(".slider-container").on("mouseup", function() { setBGColor() })
 
-})
-blue0.on("mouseup", function() {
-  setBGColor();
-  blueBox.innerHTML = blue.value;
-})
+setBGColor();
