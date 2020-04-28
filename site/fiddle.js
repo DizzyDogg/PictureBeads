@@ -1,6 +1,7 @@
 ///////////////// CROPPIE SECTION ///////////////////
-
-var basic = $('#cropper-tool').croppie({
+var width = 40;
+var height = 50;
+var source = $('#cropper-tool').croppie({
   viewport: { width: 160, height: 200 },
   boundary: { width: 400, height: 400 },
 });
@@ -10,21 +11,36 @@ function readFile(input) {
     var reader = new FileReader();
 
     reader.onload = function(e) {
-      $('#cropper-tool').croppie('bind', {
+      source.croppie('bind', {
         url: e.target.result
       });
-      $('.actionDone').toggle();
-      $('.actionUpload').toggle();
     }
 
     reader.readAsDataURL(input.files[0]);
   }
 }
-
 $('.actionUpload input').on('change', function() { readFile(this); });
 $('.actionDone').on('click', function() {
-  $('.actionDone').toggle();
-  $('.actionUpload').toggle();
+  // $('.actionDone').toggle();
+  // $('.actionUpload').toggle();
+  source.croppie('result', {
+      type: 'base64',
+      size: { 'width': width, 'height': height },
+      format: 'png'
+  }).then(function(foo){
+      var data = foo.split(',');
+      var uploadedImage = data[1];
+      var mimeType = data[0].split(';')[0].split(':')[1];
+
+      var postData = JSON.stringify({ 'image': uploadedImage });
+      jQuery.post(
+          'http://localhost:8000/generate_pixelart?',
+          postData,
+          function(returnData, textStatus, jQueryXHR){
+              console.log(returnData);
+          }
+      )
+  });
 })
 
 ///////////////// POWERANGE SECTION ///////////////////
