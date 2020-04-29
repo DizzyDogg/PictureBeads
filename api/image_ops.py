@@ -16,7 +16,7 @@ PALETTE_IMAGE = COLORS.get_palette()
 
 
 def adjust_channels(image, red=1.1, green=1.1, blue=1.1):
-    return image.convert(
+    return image.convert(mode="RGB").convert(
         mode="RGB",
         matrix=(red,   0,     0,     0,
                 0,     green, 0,     0,
