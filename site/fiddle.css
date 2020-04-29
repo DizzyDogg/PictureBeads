@@ -52,10 +52,6 @@
         text-transform: uppercase;
     }
         
-    &.actionCancel {
-        background-color: #ddd;
-        color: purple;
-    }
     &.actionDone {
         display: none;
     }
@@ -64,5 +60,12 @@
         top: 0;
         left: 0;
         opacity: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #result-img {
+        image-rendering: pixelated;
+        width: 480px;
+        height: 600px; 
     }
 
