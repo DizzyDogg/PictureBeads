@@ -4,12 +4,14 @@ from io import BytesIO
 
 from fastapi import Body
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 from PIL import Image
 
 import image_ops
 
 app = FastAPI()
+app.add_middleware(CORSMiddleware, allow_origins=['*', "fhqwhgads"])
 
 
 @app.get("/")
