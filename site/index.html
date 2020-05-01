@@ -16,17 +16,24 @@
 </head>
 <body>
 
-<div id="modal">
-  <a class="button actionUpload">
-    <span>Upload</span>
-    <input type="file" id="upload" value="Choose Image" accept="image/*">
-  </a>
-  <button class="actionDone">Done</button>
-  <div id="cropper-tool"></div>
+<div class="top-section">
+    <div class="upload-half">
+        <div id="upload-window">
+            <div id="cropper-tool"></div>
+        </div>
+        <a class="button actionUpload">
+            <input type="file" id="upload" value="Choose Image" accept="image/*">
+            <span>upload</span>
+        </a>
+        <button class="actionDone">Done</button>
+    </div>
+    <div class="display-half">
+        <img id="result-img"/>
+    </div>
 </div>
-<img id="result-img"/>
 
 <br>
+
 <div id="red-bar" class="slider-container">
   <input class="slider"/>
   <label>Red Multiplier</label>
