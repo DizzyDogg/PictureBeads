@@ -3,26 +3,26 @@ var width = 40;
 var height = 50;
 var apiURL = 'http://localhost:8000/generate_pixelart';
 var source = $('#cropper-tool').croppie({
-  viewport: { width: 160, height: 200 },
-  boundary: { width: 400, height: 400 },
+    viewport: { width: 160, height: 200 },
+    boundary: { width: 400, height: 400 },
 });
 
 function readFile(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
-    reader.onload = function(e) {
-      source.croppie('bind', {
-        url: e.target.result
-      });
+        reader.onload = function(e) {
+            source.croppie('bind', {
+                url: e.target.result
+            });
+        }
+
+        reader.readAsDataURL(input.files[0]);
     }
-
-    reader.readAsDataURL(input.files[0]);
-  }
 }
 $('.actionUpload input').on('change', function() { readFile(this); });
 $('.actionDone').on('click', generatePixelImage);
-       
+
 // create the new image with the RGB color channels
 function generatePixelImage() {
     // $('.actionDone').toggle();
@@ -44,7 +44,7 @@ function generatePixelImage() {
 
 function displayReturnImage(returnData, textStatus, jQueryXHR){
     var srcStr = "data:image/png;base64," + returnData.image
-    $('#result-img').attr('src', srcStr);
+        $('#result-img').attr('src', srcStr);
 }
 
 ///////////////// POWERANGE SECTION ///////////////////
@@ -62,10 +62,10 @@ var greenBox = document.querySelector("#green-box");
 var blueBox = document.querySelector("#blue-box");
 
 var redArgs = {
-  min: 80,
-  max: 120,
-  start: 100,
-  step: 1
+    min: 80,
+    max: 120,
+    start: 100,
+    step: 1
 };
 
 var greenArgs = Object.assign({}, redArgs);
@@ -78,15 +78,44 @@ var blue1 = new Powerange(blue, blueArgs);
 
 // handle slider value changes
 function setBGColor() {
-  var newColor = `rgb(${red.value}, ${green.value}, ${blue.value})`;
-  document.body.style.background = newColor;
-  redBox.innerHTML   = red.value;
-  greenBox.innerHTML = green.value;
-  blueBox.innerHTML  = blue.value;
-  generatePixelImage();
+    var newColor = `rgb(${red.value}, ${green.value}, ${blue.value})`;
+    document.body.style.background = newColor;
+    redBox.innerHTML   = red.value;
+    greenBox.innerHTML = green.value;
+    blueBox.innerHTML  = blue.value;
+    generatePixelImage();
 }
 
 var red0 = $("#red-bar");
 $(".slider-container").on("mouseup", setBGColor);
+
+// handle accordion collapsible content
+var accordion = document.getElementsByClassName("accordion");
+var i;
+var panel;
+
+for (i = 0; i < accordion.length; i++) {
+    accordion[i].addEventListener("click", function() {
+        var i;
+        for (i = 0; i < accordion.length; i++) {
+            accordion[i].classList.remove("active");
+            panel = accordion[i].nextElementSibling;
+            panel.style.maxHeight = null;
+        }
+        this.classList.add("active");
+        panel = this.nextElementSibling;
+        panel.style.maxHeight = panel.scrollHeight + "px";
+    });
+}
+
+
+
+
+// handle page submission
+$("#submit").on("click", submitPage);
+
+function submitPage() {
+    window.location.replace("file:///home/jbrown/Desktop/Personal/Perler/PictureBeads/site/checklist.html");
+}
 
 setBGColor();

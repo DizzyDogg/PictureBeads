@@ -15,42 +15,86 @@
 
 </head>
 <body>
-
-<div class="top-section">
-    <div class="upload-half">
-        <div id="upload-window">
-            <div id="cropper-tool"></div>
+<button id="step1Button" class="accordion">Step 1: Create Image</button>
+<div id="step1" class="accordion-section">
+    <div class="top-section">
+        <div class="upload-half">
+            <div id="upload-window">
+                <div id="cropper-tool"></div>
+            </div>
+            <a class="button actionUpload">
+                <input type="file" id="upload" value="Choose Image" accept="image/*">
+                <span>upload</span>
+            </a>
+            <button class="actionDone">Done</button>
         </div>
-        <a class="button actionUpload">
-            <input type="file" id="upload" value="Choose Image" accept="image/*">
-            <span>upload</span>
-        </a>
-        <button class="actionDone">Done</button>
+        <div class="display-half">
+            <img id="result-img"/>
+        </div>
     </div>
-    <div class="display-half">
-        <img id="result-img"/>
+
+    <br>
+
+    <div class="slider-section">
+        <div id="red-bar" class="slider-container">
+            <input class="slider"/>
+            <label>Red Multiplier</label>
+            <div id="red-box" class="display-box"></div>
+        </div>
+        <div id="green-bar" class="slider-container">
+            <input class="slider"/>
+            <label>Green Multiplier</label>
+            <div id="green-box" class="display-box"></div>
+        </div>
+        <div id="blue-bar" class="slider-container">
+            <input class="slider"/>
+            <label>Blue Multiplier</label>
+            <div id="blue-box" class="display-box"></div>
+        </div>
     </div>
 </div>
 
-<br>
+<button id="step2Button" class="accordion">Step 2: Select Items</button>
+<div id="step2" class="accordion-section">
+<h1>Select all of the items you wish to purchase</h1>
 
-<div class="slider-section">
-    <div id="red-bar" class="slider-container">
-        <input class="slider"/>
-        <label>Red Multiplier</label>
-        <div id="red-box" class="display-box"></div>
-    </div>
-    <div id="green-bar" class="slider-container">
-        <input class="slider"/>
-        <label>Green Multiplier</label>
-        <div id="green-box" class="display-box"></div>
-    </div>
-    <div id="blue-bar" class="slider-container">
-        <input class="slider"/>
-        <label>Blue Multiplier</label>
-        <div id="blue-box" class="display-box"></div>
-    </div>
+<form action="/checkbox.html" method="get">
+    <h3>Custom Kit</h3>
+    <input type="checkbox" name="template" value="PDF" checked disabled>
+    <label for="template">PDF PictureBead Pattern ($5)</label><br>
+    <input type="checkbox" name="beads" value="beads" checked>
+    <label for="beads">Custom Bead Set - 2000ct ($25)</label><br>
+
+    <h3>Tools and Accessories</h3>
+    <input type="checkbox" name="pegboards" value="pegboards">
+    <label for="pegboards">Bead Pegboards - 4 Pack with ironing sheet ($10)</label><br>
+    <input type="checkbox" name="tweezers" value="tweezers">
+    <label for="tweezers">Bead Tweezers - 2 Pack ($4)</label><br>
+    <input type="checkbox" name="frame" value="frame">
+    <label for="frame">Basic Picture Frame - 8x10 ($4)</label><br>
+    <br>
+
+    <h3>Contact Info</h3>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name"><br>
+    <label for="name">Email</label>
+    <input type="text" id="email" name="email"><br>
+    <label for="name">Phone Number</label>
+    <input type="text" id="phone" name="phone"><br>
+    <br>
+
+    <input type="submit" value="Submit">
+</form>
+
 </div>
+
+<button id="step3Button" class="accordion">Step 3: Process Payment</button>
+<div id="step3" class="accordion-section">
+    This is step 3
+    <br>
+    <input type="submit" value="Process My Order">
+</div>
+
 
 <script src="fiddle.js"></script>
 </body>

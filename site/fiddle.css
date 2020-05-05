@@ -4,6 +4,12 @@ body {
     font-family: Helvetica;
 }
 
+.accordion-section {
+    max-height: 0px;
+    transition: max-height 0.2s ease-out;
+    overflow: hidden;
+}
+
 .top-section {
     margin-bottom: 50px;
     margin-left: auto;
