@@ -83,9 +83,10 @@ function setBGColor() {
   redBox.innerHTML   = red.value;
   greenBox.innerHTML = green.value;
   blueBox.innerHTML  = blue.value;
+  generatePixelImage();
 }
 
 var red0 = $("#red-bar");
-$(".slider-container").on("mouseup", generatePixelImage);
+$(".slider-container").on("mouseup", setBGColor);
 
 setBGColor();
