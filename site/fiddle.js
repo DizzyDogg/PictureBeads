@@ -66,6 +66,9 @@ var redArgs = {
     max: 120,
     start: 100,
     step: 1
+    // klass: 'background-color: green'
+    // figure out how to change the line color
+    // range-quantity.background-color: green
 };
 
 var greenArgs = Object.assign({}, redArgs);
@@ -108,7 +111,8 @@ for (i = 0; i < accordion.length; i++) {
     });
 }
 
-
+var step1 = $("#step1")[0];
+step1.style.maxHeight = step1.scrollHeight + "px";
 
 
 // handle page submission

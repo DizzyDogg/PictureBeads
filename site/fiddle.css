@@ -4,6 +4,13 @@ body {
     font-family: Helvetica;
 }
 
+.accordion {
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+    padding: 16px;
+}
+
 .accordion-section {
     max-height: 0px;
     transition: max-height 0.2s ease-out;
@@ -46,7 +53,7 @@ body {
     text-align: center;
 }
 
-button, .button {
+.button {
     background-color: purple;
     color: white;
     padding: 10px 15px;
@@ -97,4 +104,9 @@ input#upload {
     height: 10px;
     padding-top: 50px;
     padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.range-quantity {
+    background-color: green;
 }
