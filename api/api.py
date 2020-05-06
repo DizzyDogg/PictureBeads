@@ -61,6 +61,7 @@ async def generate_pixelart(image: str = Body(..., embed=True),
     return {"image": out_b64}
 
 
+# TODO: Refactor the PDF generation part of this into its own thing
 @app.post("/generate_pattern")
 async def generate_pattern(image: str = Body(..., embed=True)):
     """
@@ -119,3 +120,22 @@ async def generate_pattern(image: str = Body(..., embed=True)):
     canvas.save()
     data.seek(0)
     return StreamingResponse(data, media_type="application/pdf")
+
+
+@app.post("/submit_order")
+def submit_order(image: str = Body(..., embed=True),
+                 name: str = Body(..., embed=True),
+                 email: str = Body(..., embed=True),
+                 phone: str = Body(..., embed=True),
+                 kit: str = Body(..., embed=True),
+                 tweezers: bool = Body(..., embed=True),
+                 pegboard: bool = Body(..., embed=True),
+                 frame: bool = Body(..., embed=True)):
+    print(image)
+    print(name)
+    print(email)
+    print(phone)
+    print(kit)
+    print(tweezers)
+    print(pegboard)
+    print(frame)
