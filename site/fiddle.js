@@ -1,7 +1,7 @@
 ///////////////// CROPPIE SECTION ///////////////////
 var width = 40;
 var height = 50;
-var apiURL = 'http://localhost:8000/generate_pixelart';
+var apiURL = '/api/generate_pixelart';
 var source = $('#cropper-tool').croppie({
     viewport: { width: 160, height: 200 },
     boundary: { width: 400, height: 400 },
