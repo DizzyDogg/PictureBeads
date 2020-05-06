@@ -1,4 +1,4 @@
-SERVER TECH
+Server Tech
 ###########
 
 Web server for static and frontend:
@@ -10,3 +10,27 @@ uvicorn or hypercorn or daphne? Uvicorn for now, but we can switch to Hypercorn 
 Async web framework for the API:
 FastAPI or Quart? FastAPI
 
+
+Running Services
+################
+
+Installing Python Packages
+==========================
+
+In a Python3 virtualenv, run:
+
+ pip install -r requirements.txt
+
+API
+===
+
+In the api/ directory, while in the virtualenv, run:
+
+ uvicorn api:app --reload
+
+Website
+=======
+
+In the site/ directory:
+
+ nginx -p . -c nginx.conf -g "daemon off;"
