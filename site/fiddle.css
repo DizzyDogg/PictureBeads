@@ -1,5 +1,5 @@
 body {
-    background: #fff;
+    background: rgb(115, 155, 185);
     padding: 20px;
     font-family: Helvetica;
 }
@@ -107,6 +107,14 @@ input#upload {
     margin-bottom: 20px;
 }
 
-.range-quantity {
+#red-bar .range-quantity {
+    background-color: red;
+}
+
+#green-bar .range-quantity {
     background-color: green;
+}
+
+#blue-bar .range-quantity {
+    background-color: blue;
 }

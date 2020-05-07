@@ -27,6 +27,9 @@ $('.actionDone').on('click', generatePixelImage);
 function generatePixelImage() {
     // $('.actionDone').toggle();
     // $('.actionUpload').toggle();
+    redBox.innerHTML   = red.value;
+    greenBox.innerHTML = green.value;
+    blueBox.innerHTML  = blue.value;
     source.croppie('result', {
         type: 'base64',
         size: { 'width': width, 'height': height },
@@ -66,9 +69,6 @@ var redArgs = {
     max: 120,
     start: 100,
     step: 1
-    // klass: 'background-color: green'
-    // figure out how to change the line color
-    // range-quantity.background-color: green
 };
 
 var greenArgs = Object.assign({}, redArgs);
@@ -80,17 +80,7 @@ var green1 = new Powerange(green, greenArgs);
 var blue1 = new Powerange(blue, blueArgs);
 
 // handle slider value changes
-function setBGColor() {
-    var newColor = `rgb(${red.value}, ${green.value}, ${blue.value})`;
-    document.body.style.background = newColor;
-    redBox.innerHTML   = red.value;
-    greenBox.innerHTML = green.value;
-    blueBox.innerHTML  = blue.value;
-    generatePixelImage();
-}
-
-var red0 = $("#red-bar");
-$(".slider-container").on("mouseup", setBGColor);
+$(".slider-container").on("mouseup", generatePixelImage);
 
 // handle accordion collapsible content
 var accordion = document.getElementsByClassName("accordion");
@@ -121,5 +111,3 @@ $("#submit").on("click", submitPage);
 function submitPage() {
     window.location.replace("file:///home/jbrown/Desktop/Personal/Perler/PictureBeads/site/checklist.html");
 }
-
-setBGColor();

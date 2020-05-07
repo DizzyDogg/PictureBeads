@@ -14,10 +14,12 @@
   <script src="vendor/croppie/croppie.min.js"></script>
 
 </head>
+
+
 <body>
 <button id="step1Button" class="accordion active">Step 1: Create Image</button>
 <div id="step1" class="accordion-section">
-<h1>Create Your Perfect Image</h1>
+    <h1>Create Your Perfect Image</h1>
     <div class="top-section">
         <div class="upload-half">
             <div id="upload-window">
@@ -55,43 +57,53 @@
     </div>
 </div>
 
+
 <button id="step2Button" class="accordion">Step 2: Select Items</button>
 <div id="step2" class="accordion-section">
-<h1>Select all of the items you wish to purchase</h1>
+    <h1>Select all of the items you wish to purchase</h1>
 
-<form action="/checkbox.html" method="get">
-    <h3>Custom Kit</h3>
-    <input type="checkbox" name="template" value="PDF" checked disabled>
-    <label for="template">PDF PictureBead Pattern ($5)</label><br>
-    <input type="checkbox" name="beads" value="beads" checked>
-    <label for="beads">Custom Bead Set - 2000ct ($25)</label><br>
+    <form action="/checkbox.html" method="get">
+        <h3>Custom Kit</h3>
+        <input type="radio" id="pdfonly" name="kit" value="PDFOnly">
+        <label for="template">PictureBead Pattern - PDF ($5)</label><br>
+        <input type="radio" id="beads" name="kit" value="beads" checked="checked">
+        <label for="beads">PictureBead Pattern AND Custom Bead Set - 2000ct ($25)</label><br>
+        <input type="radio" id="neither" name="kit" value="neither">
+        <label for="beads">I just want the accessories (Free)</label><br>
 
-    <h3>Tools and Accessories</h3>
-    <input type="checkbox" name="pegboards" value="pegboards">
-    <label for="pegboards">Bead Pegboards - 4 Pack with ironing sheet ($10)</label><br>
-    <input type="checkbox" name="tweezers" value="tweezers">
-    <label for="tweezers">Bead Tweezers - 2 Pack ($8)</label><br>
-    <input type="checkbox" name="frame" value="frame">
-    <label for="frame">Picture Frame - 8x10 ($5)</label><br>
-    <br>
+        <h3>Tools and Accessories</h3>
+        <input type="checkbox" name="pegboards" value="pegboards">
+        <label for="pegboards">Bead Pegboards - 4 Pack with ironing sheet ($10)</label><br>
+        <input type="checkbox" name="tweezers" value="tweezers">
+        <label for="tweezers">Bead Tweezers - 2 Pack ($8)</label><br>
+        <input type="checkbox" name="frame" value="frame">
+        <label for="frame">Picture Frame - 8x10 ($5)</label><br>
+        <br>
 
-    <h3>Contact Info</h3>
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name"><br>
-    <label for="name">Email</label>
-    <input type="text" id="email" name="email"><br>
-    <label for="name">Phone Number</label>
-    <input type="text" id="phone" name="phone"><br>
-    <br>
+        <h3>Contact Info</h3>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email"><br>
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone"><br>
+        <br>
 
-    <input type="submit" value="Submit">
-</form>
-
+        <input type="submit" value="Submit">
+    </form>
 </div>
+
 
 <button id="step3Button" class="accordion">Step 3: Process Payment</button>
 <div id="step3" class="accordion-section">
-    This is step 3
+    <h1>Process Payment</h1>
+    Jeff has not yet implemented a formal payment process.<br>
+    Please contact him and arrange payment manually.<br>
+    <br>
+    Cell Phone: <em>801-722-8810</em><br>
+    Email: <em>jeffthetenor@yahoo.com</em><br>
+    <br>
+    Thank you for your understanding.<br>
     <br>
     <input type="submit" value="Process My Order">
 </div>
