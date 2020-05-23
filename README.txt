@@ -31,6 +31,6 @@ In the api/ directory, while in the virtualenv, run:
 Website
 =======
 
-In the site/ directory:
+In this directory:
 
  nginx -p . -c nginx.conf -g "daemon off;"
