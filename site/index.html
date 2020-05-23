@@ -15,6 +15,7 @@
 
 </head>
 
+<! ============ STEP 1 ============= >
 
 <body>
 <button id="step1Button" class="accordion active">Step 1: Create Image</button>
@@ -29,7 +30,7 @@
                 <input type="file" id="upload" value="Choose Image" accept="image/*">
                 <span>upload</span>
             </a>
-            <button class="actionDone button">Done</button>
+            <button class="button">Done</button>
         </div>
         <div class="display-half">
             <img id="result-img"/>
@@ -57,6 +58,7 @@
     </div>
 </div>
 
+<! ============ STEP 2 ============= >
 
 <button id="step2Button" class="accordion">Step 2: Select Items</button>
 <div id="step2" class="accordion-section">
@@ -89,10 +91,13 @@
         <input type="text" id="phone" name="phone"><br>
         <br>
 
-        <input type="submit" value="Submit">
+        <div>
+            <button class="button" onclick="submitSelection()">Submit</button>
+        </div>
     </form>
 </div>
 
+<! ============ STEP 3 ============= >
 
 <button id="step3Button" class="accordion">Step 3: Process Payment</button>
 <div id="step3" class="accordion-section">

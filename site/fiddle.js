@@ -1,7 +1,7 @@
 ///////////////// CROPPIE SECTION ///////////////////
 var width = 40;
 var height = 50;
-var apiURL = '/api/generate_pixelart';
+var pixelArtEndpoint = '/api/generate_pixelart';
 var source = $('#cropper-tool').croppie({
     viewport: { width: 160, height: 200 },
     boundary: { width: 400, height: 400 },
@@ -41,7 +41,7 @@ function generatePixelImage() {
 
         var postData = JSON.stringify({ 'image': uploadedImage });
         var queryStr =  `?red=${red.value/100}&green=${green.value/100}&blue=${blue.value/100}`;
-        jQuery.post( apiURL + queryStr, postData, displayReturnImage);
+        jQuery.post( pixelArtEndpoint + queryStr, postData, displayReturnImage);
     });
 }
 
@@ -104,10 +104,22 @@ for (i = 0; i < accordion.length; i++) {
 var step1 = $("#step1")[0];
 step1.style.maxHeight = step1.scrollHeight + "px";
 
+///////////////// CROPPIE SECTION ///////////////////
+var orderEndpoint = '/api/submit_order';
 
 // handle page submission
 $("#submit").on("click", submitPage);
 
-function submitPage() {
-    window.location.replace("file:///home/jbrown/Desktop/Personal/Perler/PictureBeads/site/checklist.html");
+function submitSelection() {
+    var orderArgs = {
+        image:    $("#"),
+        name:     $("#name").value,
+        email:    $("#email").value,
+        phone:    $("#phone").value,
+        kit:      $("input[type='radio'][name='kit']:checked").val(),
+        pegboard: $("input[type='checkbox'][name='pegboards']").checked,
+        tweezers: $("input[type='checkbox'][name='tweezers']").checked,
+        frame:    $("input[type='checkbox'][name='frame']").checked,
+    }
+    jQuery.post( orderEndpoint + queryStr, postData, displayReturnImage );
 }
