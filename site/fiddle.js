@@ -145,7 +145,7 @@ function getTotal() {
 let orderEndpoint = '/api/submit_order';
 
 // handle page submission
-$("#submit").on("click", submitPage);
+$("#submit").on("click", submitSelection);
 
 function submitSelection() {
     let orderArgs = {
@@ -158,5 +158,6 @@ function submitSelection() {
         tweezers: tweezBox.prop('checked'),
         frame:    frameBox.prop('checked'),
     }
-    jQuery.post( orderEndpoint + queryStr, postData, displayReturnImage );
+    jQuery.post( orderEndpoint, orderArgs );
+    return false;
 }

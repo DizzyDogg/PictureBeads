@@ -64,7 +64,7 @@
 <div id="step2" class="accordion-section">
     <h1>Select all of the items you wish to purchase</h1>
 
-    <form action="/checkbox.html" method="get">
+    <form method="get">
         <h3>Custom Kit</h3>
         <input type="radio" onchange="getTotal()" id="pdfonly" name="kit" value="PDFOnly">
         <label for="template">
@@ -106,7 +106,7 @@
         <br>
 
         <div>
-            <button class="button" onclick="submitSelection()">Submit</button>
+            <button class="button" id="submit">Submit</button>
         </div>
     </form>
 </div>
@@ -124,7 +124,7 @@
     <br>
     Thank you for your understanding.<br>
     <br>
-    <input type="submit" value="Process My Order">
+    <!-- <input type="submit" value="Process My Order"> -->
 </div>
 
 
