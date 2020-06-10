@@ -1,15 +1,15 @@
 ///////////////// CROPPIE SECTION ///////////////////
-var width = 40;
-var height = 50;
-var pixelArtEndpoint = '/api/generate_pixelart';
-var source = $('#cropper-tool').croppie({
+let width = 40;
+let height = 50;
+let pixelArtEndpoint = '/api/generate_pixelart';
+let source = $('#cropper-tool').croppie({
     viewport: { width: 160, height: 200 },
     boundary: { width: 400, height: 400 },
 });
 
 function readFile(input) {
     if (input.files && input.files[0]) {
-        var reader = new FileReader();
+        let reader = new FileReader();
 
         reader.onload = function(e) {
             source.croppie('bind', {
@@ -35,61 +35,61 @@ function generatePixelImage() {
         size: { 'width': width, 'height': height },
         format: 'png'
     }).then(function(foo){
-        var data = foo.split(',');
-        var uploadedImage = data[1];
-        var mimeType = data[0].split(';')[0].split(':')[1];
+        let data = foo.split(',');
+        let uploadedImage = data[1];
+        let mimeType = data[0].split(';')[0].split(':')[1];
 
-        var postData = JSON.stringify({ 'image': uploadedImage });
-        var queryStr =  `?red=${red.value/100}&green=${green.value/100}&blue=${blue.value/100}`;
+        let postData = JSON.stringify({ 'image': uploadedImage });
+        let queryStr =  `?red=${red.value/100}&green=${green.value/100}&blue=${blue.value/100}`;
         jQuery.post( pixelArtEndpoint + queryStr, postData, displayReturnImage);
     });
 }
 
 function displayReturnImage(returnData, textStatus, jQueryXHR){
-    var srcStr = "data:image/png;base64," + returnData.image
-        $('#result-img').attr('src', srcStr);
+    let srcStr = "data:image/png;base64," + returnData.image
+        $('#result-img').prop('src', srcStr);
 }
 
 ///////////////// POWERANGE SECTION ///////////////////
 // find element
-var red = document.querySelector("#red-bar .slider");
-var green = document.querySelector("#green-bar .slider");
-var blue = document.querySelector("#blue-bar .slider");
+let red = document.querySelector("#red-bar .slider");
+let green = document.querySelector("#green-bar .slider");
+let blue = document.querySelector("#blue-bar .slider");
 
-var red0 = $("#red-bar");
-var green0 = $("#green-bar");
-var blue0 = $("#blue-bar");
+let red0 = $("#red-bar");
+let green0 = $("#green-bar");
+let blue0 = $("#blue-bar");
 
-var redBox = document.querySelector("#red-box");
-var greenBox = document.querySelector("#green-box");
-var blueBox = document.querySelector("#blue-box");
+let redBox = document.querySelector("#red-box");
+let greenBox = document.querySelector("#green-box");
+let blueBox = document.querySelector("#blue-box");
 
-var redArgs = {
+let redArgs = {
     min: 80,
     max: 120,
     start: 100,
     step: 1
 };
 
-var greenArgs = Object.assign({}, redArgs);
-var blueArgs =  Object.assign({}, redArgs);
+let greenArgs = Object.assign({}, redArgs);
+let blueArgs =  Object.assign({}, redArgs);
 
 // set default values
-var red1 = new Powerange(red, redArgs);
-var green1 = new Powerange(green, greenArgs);
-var blue1 = new Powerange(blue, blueArgs);
+let red1 = new Powerange(red, redArgs);
+let green1 = new Powerange(green, greenArgs);
+let blue1 = new Powerange(blue, blueArgs);
 
 // handle slider value changes
 $(".slider-container").on("mouseup", generatePixelImage);
 
 // handle accordion collapsible content
-var accordion = document.getElementsByClassName("accordion");
+let accordion = document.getElementsByClassName("accordion");
 var i;
-var panel;
+let panel;
 
 for (i = 0; i < accordion.length; i++) {
     accordion[i].addEventListener("click", function() {
-        var i;
+        let i;
         for (i = 0; i < accordion.length; i++) {
             accordion[i].classList.remove("active");
             panel = accordion[i].nextElementSibling;
@@ -101,25 +101,62 @@ for (i = 0; i < accordion.length; i++) {
     });
 }
 
-var step1 = $("#step1")[0];
+let step1 = $("#step1")[0];
 step1.style.maxHeight = step1.scrollHeight + "px";
 
-///////////////// CROPPIE SECTION ///////////////////
-var orderEndpoint = '/api/submit_order';
+///////////////// PRICING SECTION ///////////////////
+let pdfPrice   = 5;
+let beadsPrice = 25;
+let boardPrice = 10;
+let tweezPrice = 8;
+let framePrice = 5;
+
+$("#pdfPrice").html(pdfPrice); 
+$("#beadsPrice").html(beadsPrice); 
+$("#boardPrice").html(boardPrice); 
+$("#tweezPrice").html(tweezPrice); 
+$("#framePrice").html(framePrice); 
+
+let radio = $("input[type='radio'][name='kit']:checked");
+let boardBox = $("input[type='checkbox'][name='pegboards']");
+let tweezBox = $("input[type='checkbox'][name='tweezers']");
+let frameBox = $("input[type='checkbox'][name='frame']");
+
+function getTotal() {
+    let total = 0;
+    if (radio.val() === 'beads') {
+        total += beadsPrice;
+    } else if (radio.val() === 'PDFOnly') {
+        total += pdfPrice;
+    }
+    if (boardBox.prop('checked')) {
+        total += boardPrice;
+    }
+    if (tweezBox.prop('checked')) {
+        total += tweezPrice;
+    }
+    if (frameBox.prop('checked')) {
+        total += framePrice;
+    }
+
+    $("#totalPrice").html(total); 
+}
+
+let orderEndpoint = '/api/submit_order';
 
 // handle page submission
 $("#submit").on("click", submitPage);
 
 function submitSelection() {
-    var orderArgs = {
-        image:    $("#"),
-        name:     $("#name").value,
-        email:    $("#email").value,
-        phone:    $("#phone").value,
-        kit:      $("input[type='radio'][name='kit']:checked").val(),
-        pegboard: $("input[type='checkbox'][name='pegboards']").checked,
-        tweezers: $("input[type='checkbox'][name='tweezers']").checked,
-        frame:    $("input[type='checkbox'][name='frame']").checked,
+    let orderArgs = {
+        image:    $("#result-img").prop('src'),
+        name:     $("#name").val(),
+        email:    $("#email").val(),
+        phone:    $("#phone").val(),
+        kit:      radio.val(),
+        pegboard: boardBox.prop('checked'),
+        tweezers: tweezBox.prop('checked'),
+        frame:    frameBox.prop('checked'),
     }
     jQuery.post( orderEndpoint + queryStr, postData, displayReturnImage );
 }

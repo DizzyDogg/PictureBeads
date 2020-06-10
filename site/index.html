@@ -66,22 +66,36 @@
 
     <form action="/checkbox.html" method="get">
         <h3>Custom Kit</h3>
-        <input type="radio" id="pdfonly" name="kit" value="PDFOnly">
-        <label for="template">PictureBead Pattern - PDF ($5)</label><br>
-        <input type="radio" id="beads" name="kit" value="beads" checked="checked">
-        <label for="beads">PictureBead Pattern AND Custom Bead Set - 2000ct ($25)</label><br>
-        <input type="radio" id="neither" name="kit" value="neither">
-        <label for="beads">I just want the accessories (Free)</label><br>
+        <input type="radio" onchange="getTotal()" id="pdfonly" name="kit" value="PDFOnly">
+        <label for="template">
+            PictureBead Pattern - PDF ($<span id=pdfPrice></span>)
+        </label><br>
+        <input type="radio" onchange="getTotal()" id="beads" name="kit" value="beads" checked="checked">
+        <label for="beads">
+            PictureBead Pattern AND Custom Bead Set - 2000ct ($<span id=beadsPrice></span>)
+        </label><br>
+        <input type="radio" onchange="getTotal()" id="neither" name="kit" value="neither">
+        <label for="neither">
+            I just want the accessories (Free)
+        </label><br>
 
         <h3>Tools and Accessories</h3>
-        <input type="checkbox" name="pegboards" value="pegboards">
-        <label for="pegboards">Bead Pegboards - 4 Pack with ironing sheet ($10)</label><br>
-        <input type="checkbox" name="tweezers" value="tweezers">
-        <label for="tweezers">Bead Tweezers - 2 Pack ($8)</label><br>
-        <input type="checkbox" name="frame" value="frame">
-        <label for="frame">Picture Frame - 8x10 ($5)</label><br>
+        <label for="pegboards">
+        <input type="checkbox" onchange="getTotal()" name="pegboards" value="pegboards">
+            Bead Pegboards - 4 Pack with ironing sheet ($<span id=boardPrice></span>)
+        </label><br>
+        <input type="checkbox" onchange="getTotal()" name="tweezers" value="tweezers">
+        <label for="tweezers">
+            Bead Tweezers - 2 Pack ($<span id=tweezPrice></span>)
+        </label><br>
+        <input type="checkbox" onchange="getTotal()" name="frame" value="frame">
+        <label for="frame">
+            Picture Frame - 8x10 ($<span id=framePrice></span>)
+        </label><br>
         <br>
 
+        <h2>Total: $<span id=totalPrice></span></h2> 
+        
         <h3>Contact Info</h3>
         <label for="name">Name</label>
         <input type="text" id="name" name="name"><br>
