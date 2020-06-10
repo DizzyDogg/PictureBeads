@@ -158,6 +158,11 @@ function submitSelection() {
         tweezers: tweezBox.prop('checked'),
         frame:    frameBox.prop('checked'),
     }
-    jQuery.post( orderEndpoint, orderArgs );
+    let postData = JSON.stringify(orderArgs);
+    jQuery.post( orderEndpoint, postData, thankYou );
     return false;
+}
+
+function thankYou () {
+    window.alert('You have successfully submitted your request for a Picture Bead kit. Please contact Jeff');
 }
