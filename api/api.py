@@ -139,6 +139,7 @@ async def submit_order(image: str = Body(..., embed=True),
                        pegboard: bool = Body(..., embed=True),
                        tweezers: bool = Body(..., embed=True),
                        frame: bool = Body(..., embed=True),
+                       total: int = Body(..., embed=True),
                        ):
     message = EmailMessage()
     message["Subject"] = settings.SUBJECT
@@ -153,6 +154,8 @@ async def submit_order(image: str = Body(..., embed=True),
     pegboard: {pegboard}
     tweezers: {tweezers}
     frame: {frame}
+
+    TOTAL: {total}
     """
     # Get binary data from "data:" URL
     image = b64decode(image.split(",")[1])
