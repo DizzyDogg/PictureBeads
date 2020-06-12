@@ -21,12 +21,17 @@ function readFile(input) {
     }
 }
 $('.actionUpload input').on('change', function() { readFile(this); });
-$("#doneButton").on('click', generatePixelImage);
+$('#cropper-tool').on('update.croppie', delayedGeneration);
+
+var timeoutHandle;
+function delayedGeneration() {
+    clearTimeout(timeoutHandle);
+    timeoutHandle = setTimeout(generatePixelImage, 250);
+}
 
 // create the new image with the RGB color channels
 function generatePixelImage() {
-    // $('.actionDone').toggle();
-    // $('.actionUpload').toggle();
+    console.log("called it!");
     redBox.innerHTML   = red.value;
     greenBox.innerHTML = green.value;
     blueBox.innerHTML  = blue.value;
