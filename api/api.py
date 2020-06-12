@@ -1,6 +1,9 @@
 from base64 import b64decode
 from base64 import b64encode
+from email.message import EmailMessage
+import imghdr
 from io import BytesIO
+import smtplib
 
 from fastapi import Body
 from fastapi import FastAPI
@@ -12,9 +15,9 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import inch
 
 import image_ops
+import settings
 
 app = FastAPI()
-app.add_middleware(CORSMiddleware, allow_origins=['*', "fhqwhgads"])
 
 
 @app.get("/")
@@ -61,19 +64,7 @@ async def generate_pixelart(image: str = Body(..., embed=True),
     return {"image": out_b64}
 
 
-# TODO: Refactor the PDF generation part of this into its own thing
-@app.post("/generate_pattern")
-async def generate_pattern(image: str = Body(..., embed=True)):
-    """
-    Takes an image as output by the `generate_pixelart` call, and returns a
-    PDF with the following pages:
-
-        1. Packing list/instructions
-        2. Template
-    """
-
-    # Process image
-    image = Image.open(BytesIO(b64decode(image)))
+def _generate_pattern(image):
     template = image_ops.generate_template(image)
     image_buf = BytesIO()
     template.save(image_buf, format="PNG")
@@ -92,7 +83,7 @@ async def generate_pattern(image: str = Body(..., embed=True)):
     column = 0
     left_margin = 0.5 * inch
     for index, color_name in enumerate(sorted(bead_counts.keys())):
-        if column == 0 and index > color_count / 2.0:
+        if column == 0 and index >= color_count / 2.0:
             column = 1
             left_margin = 4.25 * inch
             y = 10 * inch
@@ -119,23 +110,63 @@ async def generate_pattern(image: str = Body(..., embed=True)):
     # Finalize and return
     canvas.save()
     data.seek(0)
+    return data.read()
+
+
+# TODO: Refactor the PDF generation part of this into its own thing
+@app.post("/generate_pattern")
+async def generate_pattern(image: str = Body(..., embed=True)):
+    """
+    Takes an image as output by the `generate_pixelart` call, and returns a
+    PDF with the following pages:
+
+        1. Packing list/instructions
+        2. Template
+    """
+
+    # Process image
+    image = Image.open(BytesIO(b64decode(image)))
+    data = _generate_pattern(image)
     return StreamingResponse(data, media_type="application/pdf")
 
 
 @app.post("/submit_order")
-def submit_order(image: str = Body(..., embed=True),
-                 name: str = Body(..., embed=True),
-                 email: str = Body(..., embed=True),
-                 phone: str = Body(..., embed=True),
-                 kit: str = Body(..., embed=True),
-                 tweezers: bool = Body(..., embed=True),
-                 pegboard: bool = Body(..., embed=True),
-                 frame: bool = Body(..., embed=True)):
-    print(image)
-    print(name)
-    print(email)
-    print(phone)
-    print(kit)
-    print(tweezers)
-    print(pegboard)
-    print(frame)
+async def submit_order(image: str = Body(..., embed=True),
+                       name: str = Body(..., embed=True),
+                       email: str = Body(..., embed=True),
+                       phone: str = Body(..., embed=True),
+                       kit: str = Body(..., embed=True),
+                       pegboard: bool = Body(..., embed=True),
+                       tweezers: bool = Body(..., embed=True),
+                       frame: bool = Body(..., embed=True),
+                       ):
+    message = EmailMessage()
+    message["Subject"] = settings.SUBJECT
+    message["To"] = settings.TO
+    message["From"] = settings.FROM
+
+    info = f"""
+    name: {name}
+    email: {email}
+    phone: {phone}
+    kit: {kit}
+    pegboard: {pegboard}
+    tweezers: {tweezers}
+    frame: {frame}
+    """
+    # Get binary data from "data:" URL
+    image = b64decode(image.split(",")[1])
+    pattern = _generate_pattern(Image.open(BytesIO(image)))
+    message.preamble = info
+    message.set_content(info)
+    message.add_attachment(
+        image, maintype="image", subtype=imghdr.what(None, image))
+    message.add_attachment(
+        pattern, maintype="application", subtype="pdf")
+
+    print(message)
+    with smtplib.SMTP(settings.SERVER, settings.PORT) as server:
+        server.ehlo()
+        server.starttls()
+        server.login(settings.FROM, settings.PASSWORD)
+        server.send_message(message)
