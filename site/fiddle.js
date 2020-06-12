@@ -121,13 +121,15 @@ $("#boardPrice").html(boardPrice);
 $("#tweezPrice").html(tweezPrice); 
 $("#framePrice").html(framePrice); 
 
-let radio = $("input[type='radio'][name='kit']:checked");
 let boardBox = $("input[type='checkbox'][name='pegboards']");
 let tweezBox = $("input[type='checkbox'][name='tweezers']");
 let frameBox = $("input[type='checkbox'][name='frame']");
 
+$('input[type=radio][name=kit]').change(getTotal);
+
 function getTotal() {
     let total = 0;
+    let radio = $("input[type='radio'][name='kit']:checked");
     if (radio.val() === 'beads') {
         total += beadsPrice;
     } else if (radio.val() === 'PDFOnly') {
@@ -159,10 +161,11 @@ function submitSelection() {
         name:     $("#name").val(),
         email:    $("#email").val(),
         phone:    $("#phone").val(),
-        kit:      radio.val(),
+        kit:      $("input[type='radio'][name='kit']:checked").val(),
         pegboard: boardBox.prop('checked'),
         tweezers: tweezBox.prop('checked'),
         frame:    frameBox.prop('checked'),
+        total:    $("#totalPrice").html,
     }
     let postData = JSON.stringify(orderArgs);
     jQuery.post( orderEndpoint, postData, thankYou );
