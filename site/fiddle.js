@@ -165,7 +165,7 @@ function submitSelection() {
         pegboard: boardBox.prop('checked'),
         tweezers: tweezBox.prop('checked'),
         frame:    frameBox.prop('checked'),
-        total:    $("#totalPrice").html,
+        total:    $("#totalPrice").html
     }
     let postData = JSON.stringify(orderArgs);
     jQuery.post( orderEndpoint, postData, thankYou );
