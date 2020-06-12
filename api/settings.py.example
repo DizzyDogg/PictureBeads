@@ -1,0 +1,6 @@
+TO = "elegantelephantgames@gmail.com"
+FROM = "elegantelephantgames@gmail.com"
+PASSWORD = None
+SUBJECT = "Picture Bead Order"
+SERVER = "smtp.gmail.com"
+PORT = 587
