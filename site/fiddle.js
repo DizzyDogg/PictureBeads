@@ -27,7 +27,6 @@ $("#doneButton").on('click', generatePixelImage);
 function generatePixelImage() {
     // $('.actionDone').toggle();
     // $('.actionUpload').toggle();
-    console.log("calling it");
     redBox.innerHTML   = red.value;
     greenBox.innerHTML = green.value;
     blueBox.innerHTML  = blue.value;
