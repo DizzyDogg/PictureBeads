@@ -21,12 +21,13 @@ function readFile(input) {
     }
 }
 $('.actionUpload input').on('change', function() { readFile(this); });
-$('.actionDone').on('click', generatePixelImage);
+$("#doneButton").on('click', generatePixelImage);
 
 // create the new image with the RGB color channels
 function generatePixelImage() {
     // $('.actionDone').toggle();
     // $('.actionUpload').toggle();
+    console.log("calling it");
     redBox.innerHTML   = red.value;
     greenBox.innerHTML = green.value;
     blueBox.innerHTML  = blue.value;
@@ -80,7 +81,7 @@ let green1 = new Powerange(green, greenArgs);
 let blue1 = new Powerange(blue, blueArgs);
 
 // handle slider value changes
-$(".slider-container").on("mouseup", generatePixelImage);
+$(".slider-container").on("mouseup touchend", generatePixelImage);
 
 // handle accordion collapsible content
 let accordion = document.getElementsByClassName("accordion");
@@ -143,6 +144,8 @@ function getTotal() {
 }
 
 let orderEndpoint = '/api/submit_order';
+
+getTotal();
 
 // handle page submission
 $("#submit").on("click", submitSelection);
