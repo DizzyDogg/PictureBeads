@@ -8,7 +8,6 @@ import smtplib
 from fastapi import Body
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
-from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.pagesizes import letter
@@ -167,7 +166,6 @@ async def submit_order(image: str = Body(..., embed=True),
     message.add_attachment(
         pattern, maintype="application", subtype="pdf")
 
-    print(message)
     with smtplib.SMTP(settings.SERVER, settings.PORT) as server:
         server.ehlo()
         server.starttls()
