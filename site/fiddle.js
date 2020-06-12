@@ -31,7 +31,6 @@ function delayedGeneration() {
 
 // create the new image with the RGB color channels
 function generatePixelImage() {
-    console.log("called it!");
     redBox.innerHTML   = red.value;
     greenBox.innerHTML = green.value;
     blueBox.innerHTML  = blue.value;
