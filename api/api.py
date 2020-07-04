@@ -1,13 +1,18 @@
 from base64 import b64decode
 from base64 import b64encode
+from base64 import urlsafe_b64encode
 from email.message import EmailMessage
 import imghdr
 from io import BytesIO
+import os
+import pickle
 import smtplib
 
 from fastapi import Body
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
+from googleapiclient.discovery import build
+from googleapiclient import errors
 from PIL import Image
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.pagesizes import letter
@@ -15,6 +20,9 @@ from reportlab.lib.units import inch
 
 import image_ops
 import settings
+
+
+SCOPES = ["https://www.googleapis.com/auth/gmail.send"]
 
 app = FastAPI()
 
@@ -166,8 +174,39 @@ async def submit_order(image: str = Body(..., embed=True),
     message.add_attachment(
         pattern, maintype="application", subtype="pdf")
 
+    try:
+
+        service = build(
+            "gmail", "v1", credentials=CREDS, cache_discovery=False)
+        gmail_message = (
+            service.users()
+            .messages()
+            .send(
+                userId=settings.FROM,
+                body={
+                    "raw": urlsafe_b64encode(
+                        message.as_bytes()
+                    ).decode("utf-8")
+                })
+            .execute())
+        print(f"Message id: {gmail_message['id']}")
+    except errors.HttpError as error:
+        print(f"An error occurred: {error}")
     with smtplib.SMTP(settings.SERVER, settings.PORT) as server:
         server.ehlo()
         server.starttls()
         server.login(settings.FROM, settings.PASSWORD)
         server.send_message(message)
+
+
+def get_gmail_credentials():
+    token_file = "token.pickle"
+    if os.path.exists(token_file):
+        with open(token_file, "rb") as token:
+            return pickle.load(token)
+    else:
+        print("Missing token.pickle file")
+        return None
+
+
+CREDS = get_gmail_credentials()

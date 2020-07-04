@@ -3,3 +3,5 @@ logs
 test.*
 __pycache__
 settings.py
+credentials.json
+token.pickle
