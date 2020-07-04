@@ -6,7 +6,6 @@ import imghdr
 from io import BytesIO
 import os
 import pickle
-import smtplib
 
 from fastapi import Body
 from fastapi import FastAPI
@@ -192,11 +191,6 @@ async def submit_order(image: str = Body(..., embed=True),
         print(f"Message id: {gmail_message['id']}")
     except errors.HttpError as error:
         print(f"An error occurred: {error}")
-    with smtplib.SMTP(settings.SERVER, settings.PORT) as server:
-        server.ehlo()
-        server.starttls()
-        server.login(settings.FROM, settings.PASSWORD)
-        server.send_message(message)
 
 
 def get_gmail_credentials():
