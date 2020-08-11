@@ -38,12 +38,14 @@ def flip(image):
     return mirror(image)
 
 
-def generate_template(image):
+def generate_template(image, flip=True):
     out_image = Image.new(
         "RGB",
         # Output size
         tuple(l * r for l, r in zip(OUTPUT_SIZE, COLORS.image_size)),
     )
+    if flip:
+        image = image.transpose(Image.FLIP_LEFT_RIGHT)
     width, height = image.size
     for y in range(height):
         for x in range(width):
@@ -77,4 +79,4 @@ if __name__ == "__main__":
     pixelart = generate_pixelart(in_image)
 
     print(count_beads(pixelart))
-    generate_template(pixelart).save("test.png", "PNG")
+    generate_template(pixelart, flip=True).save("test.png", "PNG")

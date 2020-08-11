@@ -70,8 +70,8 @@ async def generate_pixelart(image: str = Body(..., embed=True),
     return {"image": out_b64}
 
 
-def _generate_pattern(image):
-    template = image_ops.generate_template(image)
+def _generate_pattern(image, flip=True):
+    template = image_ops.generate_template(image, flip=flip)
     image_buf = BytesIO()
     template.save(image_buf, format="PNG")
     bead_counts = image_ops.count_beads(image)
@@ -121,7 +121,10 @@ def _generate_pattern(image):
 
 # TODO: Refactor the PDF generation part of this into its own thing
 @app.post("/generate_pattern")
-async def generate_pattern(image: str = Body(..., embed=True)):
+async def generate_pattern(
+    image: str = Body(..., embed=True),
+    flip: bool = Body(True, embed=True),
+):
     """
     Takes an image as output by the `generate_pixelart` call, and returns a
     PDF with the following pages:
@@ -132,7 +135,7 @@ async def generate_pattern(image: str = Body(..., embed=True)):
 
     # Process image
     image = Image.open(BytesIO(b64decode(image)))
-    data = _generate_pattern(image)
+    data = _generate_pattern(image, flip=flip)
     return StreamingResponse(data, media_type="application/pdf")
 
 
@@ -142,6 +145,7 @@ async def submit_order(image: str = Body(..., embed=True),
                        email: str = Body(..., embed=True),
                        phone: str = Body(..., embed=True),
                        kit: str = Body(..., embed=True),
+                       flip: bool = Body(True, embed=True),
                        pegboard: bool = Body(..., embed=True),
                        tweezers: bool = Body(..., embed=True),
                        frame: bool = Body(..., embed=True),
@@ -159,13 +163,14 @@ async def submit_order(image: str = Body(..., embed=True),
     kit: {kit}
     pegboard: {pegboard}
     tweezers: {tweezers}
+    flipped: {flip}
     frame: {frame}
 
     TOTAL: {total}
     """
     # Get binary data from "data:" URL
     image = b64decode(image.split(",")[1])
-    pattern = _generate_pattern(Image.open(BytesIO(image)))
+    pattern = _generate_pattern(Image.open(BytesIO(image)), flip=flip)
     message.preamble = info
     message.set_content(info)
     message.add_attachment(
