@@ -16,7 +16,7 @@
    id="svg8"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
    sodipodi:docname="Kiwi_Lime.svg"
-   inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Hot_Coral.png"
+   inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/api/data/color_images/bitmap/Kiwi_Lime.png"
    inkscape:export-xdpi="14.677832"
    inkscape:export-ydpi="14.677832">
   <defs
@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="306.4743"
-     inkscape:cy="572.12149"
+     inkscape:cx="101.41333"
+     inkscape:cy="570.10118"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -40,9 +40,9 @@
      inkscape:snap-global="true"
      inkscape:snap-grids="true"
      inkscape:window-width="1920"
-     inkscape:window-height="981"
-     inkscape:window-x="0"
-     inkscape:window-y="28"
+     inkscape:window-height="1043"
+     inkscape:window-x="3840"
+     inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -52,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -74,7 +74,7 @@
        xml:space="preserve"
        id="flowRoot817"
        style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#000000;fill-opacity:1;stroke:none"
-       transform="matrix(0.52236506,0,0,0.52236506,-88.166409,-58.257484)"
+       transform="matrix(0.52236506,0,0,0.52236506,-81.5346,-58.257484)"
        inkscape:export-xdpi="14.677832"
        inkscape:export-ydpi="14.677832"
        inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Dark_Blue.png"><flowRegion
@@ -87,7 +87,7 @@
            y="325.47308"
            style="font-size:192px;fill:#000000;fill-opacity:1" /></flowRegion><flowPara
          id="flowPara823"
-         style="font-size:135.06944275px;line-height:1.25;fill:#000000;fill-opacity:1">HC</flowPara></flowRoot>    <flowRoot
+         style="font-size:135.06944275px;line-height:1.25;fill:#000000;fill-opacity:1">KL</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot818"
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
@@ -97,7 +97,7 @@
            height="579.82758"
            x="130.30968"
            y="251.76819" /></flowRegion><flowPara
-         id="flowPara824"></flowPara></flowRoot>    <flowRoot
+         id="flowPara824" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot859"
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
@@ -107,5 +107,5 @@
            height="205.06097"
            x="417.19299"
            y="581.07794" /></flowRegion><flowPara
-         id="flowPara865"></flowPara></flowRoot>  </g>
+         id="flowPara865" /></flowRoot>  </g>
 </svg>

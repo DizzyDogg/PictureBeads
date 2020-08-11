@@ -16,9 +16,9 @@
    id="svg8"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
    sodipodi:docname="Pink.svg"
-   inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/ColorImages/Apricot.png"
-   inkscape:export-xdpi="3.9140882"
-   inkscape:export-ydpi="3.9140882">
+   inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/api/data/color_images/bitmap/Pink.png"
+   inkscape:export-xdpi="14.677831"
+   inkscape:export-ydpi="14.677831">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.90509668"
-     inkscape:cx="374.82327"
-     inkscape:cy="670.14584"
+     inkscape:cx="152.74755"
+     inkscape:cy="665.72642"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -40,9 +40,9 @@
      inkscape:snap-global="true"
      inkscape:snap-grids="true"
      inkscape:window-width="1920"
-     inkscape:window-height="981"
+     inkscape:window-height="1043"
      inkscape:window-x="0"
-     inkscape:window-y="28"
+     inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -52,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -72,22 +72,6 @@
        inkscape:export-ydpi="14.677831" />
     <flowRoot
        xml:space="preserve"
-       id="flowRoot817"
-       style="font-style:normal;font-weight:normal;font-size:192px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       transform="matrix(0.52236506,0,0,0.52236506,-89.247069,-112.4767)"
-       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Blush.png"
-       inkscape:export-xdpi="14.677831"
-       inkscape:export-ydpi="14.677831"><flowRegion
-         id="flowRegion819"
-         style="font-size:192px"><rect
-           id="rect821"
-           width="335.79709"
-           height="223.05638"
-           x="330"
-           y="327.51968"
-           style="font-size:192px" /></flowRegion><flowPara
-         id="flowPara823">P</flowPara></flowRoot>    <flowRoot
-       xml:space="preserve"
        id="flowRoot987"
        style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
          id="flowRegion989"><rect
@@ -96,5 +80,22 @@
            height="544.47223"
            x="189.90868"
            y="174.9966" /></flowRegion><flowPara
-         id="flowPara993"></flowPara></flowRoot>  </g>
+         id="flowPara993" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot817"
+       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       transform="matrix(0.52236505,0,0,0.52236505,-61.589867,-94.850394)"
+       inkscape:export-xdpi="14.677832"
+       inkscape:export-ydpi="14.677832"
+       inkscape:export-filename="/home/jbrown/Desktop/Personal/Perler/PictureBeads/color_images/bitmap/Toasted_Marshmallow.png"><flowRegion
+         id="flowRegion819"
+         style="font-size:192px;fill:#ffffff;fill-opacity:1"><rect
+           id="rect821"
+           width="265.50879"
+           height="225.66261"
+           x="254.78705"
+           y="325.47308"
+           style="font-size:192px;fill:#ffffff;fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara823"
+         style="font-size:135.06944275px;line-height:1.25;fill:#ffffff;fill-opacity:1">Pk</flowPara></flowRoot>  </g>
 </svg>
