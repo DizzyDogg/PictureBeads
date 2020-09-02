@@ -108,12 +108,13 @@ for (i = 0; i < accordion.length; i++) {
 let step1 = $("#step1")[0];
 step1.style.maxHeight = step1.scrollHeight + "px";
 
-///////////////// PRICING SECTION ///////////////////
+///////////// PRICING SECTION /////////////////
 let pdfPrice   = 5;
 let beadsPrice = 25;
-let boardPrice = 10;
+let boardPrice = 16;
 let tweezPrice = 8;
 let framePrice = 5;
+///////////////////////////////////////////////
 
 $("#pdfPrice").html(pdfPrice); 
 $("#beadsPrice").html(beadsPrice); 
